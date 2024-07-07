@@ -22,7 +22,7 @@ async function pullData(
   setContractData({
     counter_value: val.sum,
     owner_address: val.owner,
-    contract_balance: balance,
+    contract_balance: balance / 1e9,
     recent_sender: val.lastSender,
   });
 }

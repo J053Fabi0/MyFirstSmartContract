@@ -26,7 +26,7 @@ function App() {
           <div>{counter_value ?? "Loading..."}</div>
         </div>
 
-        {connected && <a onClick={() => sendIncrement(1)}>Increment</a>}
+        {connected && <button onClick={() => sendIncrement(1)}>Increment</button>}
       </div>
     </>
   );

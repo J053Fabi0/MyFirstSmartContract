@@ -1,7 +1,13 @@
 import { Sender, SenderArguments } from "@ton/core";
 import { useTonConnectUI } from "@tonconnect/ui-react";
 
-export default function useTonConnect(): { sender: Sender; connected: boolean } {
+interface UseTonConnectReturn {
+  sender: Sender;
+  /** If the wallet is connected */
+  connected: boolean;
+}
+
+export default function useTonConnect(): UseTonConnectReturn {
   const [tonConnectUI] = useTonConnectUI();
 
   return {
