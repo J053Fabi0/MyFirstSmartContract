@@ -1,9 +1,11 @@
 import "./App.css";
+import useTonConnect from "./hooks/useTonconnect";
 import useMainContract from "./hooks/useMainContract";
 import { TonConnectButton } from "@tonconnect/ui-react";
 
 function App() {
-  const { contract_address, counter_value, contract_balance } = useMainContract();
+  const { connected } = useTonConnect();
+  const { contract_address, counter_value, contract_balance, sendIncrement } = useMainContract();
 
   return (
     <>
@@ -23,6 +25,8 @@ function App() {
           <b>Counter Value</b>
           <div>{counter_value ?? "Loading..."}</div>
         </div>
+
+        {connected && <a onClick={() => sendIncrement(1)}>Increment</a>}
       </div>
     </>
   );
