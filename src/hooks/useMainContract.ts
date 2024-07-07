@@ -60,5 +60,7 @@ export default function useMainContract() {
     ...contractData,
     contract_address: mainContract?.address.toString(),
     sendIncrement: (inc: number) => mainContract?.sendIncrement(sender, toNano(0.05), inc),
+    sendDeposit: (amount: number | string | bigint) => mainContract?.sendDeposit(sender, toNano(amount)),
+    sendWithdraw: (amount: string) => mainContract?.sendWithdraw(sender, toNano(0.05), toNano(amount)),
   };
 }

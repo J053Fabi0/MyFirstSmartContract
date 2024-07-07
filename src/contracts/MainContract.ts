@@ -32,10 +32,7 @@ export function myFirstBlueprintContractConfigToCell(config: MainContractConfig)
 }
 
 export class MyFirstBlueprintContract implements Contract {
-  constructor(
-    readonly address: Address,
-    readonly init?: { code: Cell; data: Cell }
-  ) {}
+  constructor(readonly address: Address, readonly init?: { code: Cell; data: Cell }) {}
 
   static createFromAddress(address: Address) {
     return new MyFirstBlueprintContract(address);
@@ -91,11 +88,16 @@ export class MyFirstBlueprintContract implements Contract {
     await this.sendInternalMessage(provider, sender, value, OPs.deposit);
   }
 
-  async sendIncrement(provider: ContractProvider, sender: Sender, value: bigint, incrementBy: number) {
+  async sendIncrement(provider: ContractProvider, sender: Sender, value: bigint, incrementBy: number | bigint) {
     await this.sendInternalMessage(provider, sender, value, OPs.increment, incrementBy);
   }
 
-  async sendWithdraw(provider: ContractProvider, sender: Sender, value: bigint, withdrawalAmount: bigint) {
+  async sendWithdraw(
+    provider: ContractProvider,
+    sender: Sender,
+    value: bigint,
+    withdrawalAmount: bigint | number
+  ) {
     await this.sendInternalMessage(provider, sender, value, OPs.withdraw, withdrawalAmount);
   }
 
