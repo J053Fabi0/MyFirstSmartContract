@@ -9,9 +9,7 @@ function App() {
 
   return (
     <>
-      <div>
-        <TonConnectButton />
-      </div>
+      <TonConnectButton />
       <div>
         <div className="Card">
           <b>Our contract Address</b>
