@@ -1,4 +1,5 @@
 import "./App.css";
+import WebApp from "@twa-dev/sdk";
 import { useEffect, useState } from "react";
 import { toFixedS } from "./utils/numbersString";
 import useTonConnect from "./hooks/useTonconnect";
@@ -20,6 +21,10 @@ function App() {
   return (
     <>
       <TonConnectButton />
+      {WebApp.platform}
+
+      <a onClick={() => WebApp.showAlert("Hey there!")}>Show Alert</a>
+
       <div>
         <p>
           <b>Our contract Address</b> {contract_address ?? "Loading..."}
